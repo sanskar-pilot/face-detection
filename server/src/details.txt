@@ -1,0 +1,3 @@
+1. python login.py
+
+python emotions.py --mode display
