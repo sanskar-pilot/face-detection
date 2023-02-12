@@ -1,9 +1,8 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
+import React from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { Button, Input, Paper, Typography } from '@mui/material';
+import { Button,  Paper, TextField, Typography } from '@mui/material';
 import { useRouter } from 'next/router'
+import { Stack } from '@mui/system';
 
 export default function SimpleContainer() {
   const router = useRouter()
@@ -12,17 +11,24 @@ export default function SimpleContainer() {
     router.push('/home')
   }
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', display:'flex', alignItems:'center', justifyContent:'center' }} >
-          <Paper>
-            <Typography variant='h5'>Login</Typography>
-            <Input />
-            <Button onClick={onClick}>Login</Button>
-          </Paper>
-          </Box>
-      </Container>
-    </React.Fragment>
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Paper sx={{ width: "36rem" }}>
+          <Stack spacing={2} p={12}>
+            <TextField label="Email" variant="outlined" />
+            <TextField label="Password" variant="outlined" type="password" />
+            <Button onClick={onClick} variant="contained">
+              Login
+            </Button>
+          </Stack>
+        </Paper>
+      </Box>
   );
 }
